@@ -1,36 +1,45 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
 
-	//Arrays and Slices
+	//Standard Library
 
-	//Arrays
-	var ages [3]int = [3]int{25, 27, 29}
+	greeting := "Hello my nerds!"
+	fmt.Println(strings.Contains(greeting, "nerds!"))
+	fmt.Println(strings.ReplaceAll(greeting, "Hello", "Hi"))
 
-	names := [4]string{"Ali,", "Hamad", "Fahad", "Mohammad"}
-	names[0] = "Ahmed"
+	fmt.Println(strings.ToUpper(greeting))
+	fmt.Println(strings.ToLower(greeting))
 
-	fmt.Println(ages, len(ages))
-	fmt.Println(names, len(names))
+	fmt.Println(strings.Index(greeting, "my"))
 
-	//Slices
-	var scores = []int{93, 95, 99}
-	scores[2] = 97
-	scores = append(scores, 99) //append is overwrite on the Slices and adding a new value with it
+	fmt.Println(strings.Count(greeting, "my"))
+	fmt.Println(strings.Split(greeting, " "))
 
-	fmt.Println(scores, len(scores))
+	fmt.Println("original string value =", greeting)
 
-	//Slices ranges
+	ages := []int{10, 20, 30, 40, 50, 25, 60, 90, 52, 52}
+	sort.Ints(ages)
+	fmt.Println(ages)
 
-	rangeOne := names[1:3]  //Print between index 1 and 3. 1 is gonna print but it not gonna print 3
-	rangeTwo := names[2:]   //Print everything on index 1 to the last
-	rangeThree := names[:2] //Print everything from the start until index 2
-	fmt.Println(rangeOne)
-	fmt.Println(rangeTwo)
-	fmt.Println(rangeThree)
+	index := sort.SearchInts(ages, 52)
 
-	rangeOne = append(rangeOne, "Abdullah") //Is not gonna add it to array names it only gonna add it to rangeOne
-	fmt.Println(rangeOne)
+	fmt.Println(index)
+
+	index = sort.SearchInts(ages, 99)
+
+	fmt.Println(index)
+
+	names := []string{"Ahmed", "Abdullah", "Hamad", "Ali", "Mohammed"}
+	sort.Strings(names)
+	fmt.Println(names)
+
+	fmt.Println(sort.SearchStrings(names, "Ali"))
+
 }
