@@ -4,34 +4,34 @@ import "fmt"
 
 func main() {
 
-	//Loops
+	//Booleans and conditionals
 
-	//x := 0
-	//
-	//for x < 5 {
-	//	fmt.Println("Value of x is:", x)
-	//	x++
-	//}
+	age := 45
 
-	//for i := 0; i < 5; i++ {
-	//	fmt.Println("i is:", i)
-	//}
+	fmt.Println(age <= 50)
+	fmt.Println(age >= 50)
+	fmt.Println(age == 45)
+	fmt.Println(age != 50)
 
-	names := []string{"Alice", "Bob", "Charlie"}
-
-	//for i := 0; i < len(names); i++ {
-	//	fmt.Println(names[i])
-	//}
-
-	//for index, value := range names {
-	//	fmt.Printf("The value at index %v is %v \n", index, value)
-	//}
-
-	for _, value := range names { // '_' is for replace for index if there is no useful for index
-		fmt.Printf("The value is %v \n", value)
-		value = "New string"
+	if age < 30 {
+		fmt.Println("Age is less than 30")
+	} else if age < 40 {
+		fmt.Println("Age is less than 40")
+	} else {
+		fmt.Println("Age is not less than 45")
 	}
 
-	fmt.Println(names)
+	names := []string{"John", "Paul", "George", "Ringo", "Ali"}
+
+	for index, value := range names { //This is use for blacklist people, keys etc...
+		if index == 1 {
+			fmt.Println("Continuing at pos", index)
+			continue
+		} else if index == 2 {
+			fmt.Println("Breaking at pos", index)
+			break
+		}
+		fmt.Printf("The value at pos %v is %v \n", index, value)
+	}
 
 }
