@@ -16,4 +16,10 @@ func main() {
 	fmt.Printf("you scored %f points! \n", 99.4)
 	fmt.Printf("you scored %.2f points! \n", 99.4)
 
+	// Sprintf
+
+	var strOne = fmt.Sprint("Hello ", fName, " ", lName, " with experince of: ", experince, " years and age: ", age)
+	var strTwo = fmt.Sprintf("Hello", fName, lName, "with experince of:", experince, "years and age:", age)
+	fmt.Println("String have been saved:", strOne, "\n", strTwo)
+
 }
