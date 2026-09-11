@@ -1,42 +1,19 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
-func getInitials(n string) (string, string) {
-
-	s := strings.ToUpper(n)
-	names := strings.Split(s, " ")
-
-	var initials []string
-	for _, v := range names {
-		initials = append(initials, v[:1])
-	}
-
-	if len(initials) > 1 {
-		return initials[0], initials[1]
-	} else {
-		return initials[0], ""
-	}
-
-}
+var scores = 99.94
 
 func main() {
 
-	//Multiple Return
+	//Package Scope
 
-	vr, tr := getInitials("Ahmed lockhart")
+	sayHello("Abdullah-Almousa")
 
-	fmt.Println(vr, tr)
+	for _, v := range points {
+		fmt.Printf("%v \t", v)
+	}
 
-	vr2, tr3 := getInitials("Cloud fie")
-
-	fmt.Println(vr2, tr3)
-
-	vr3, tr3 := getInitials("Sun")
-
-	fmt.Println(vr3, tr3)
+	showScores()
 
 }
