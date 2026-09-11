@@ -2,41 +2,42 @@ package main
 
 import "fmt"
 
+func updateName(x string) string { //It takes a copy of original variable that why it gonna print a Ahmed
+	x = "Fahad"
+
+	return x
+}
+
+func updateMenu(y map[string]int8) { //It gonna pass the original variable that why it gonna print the new value
+	y["Coffee"] = 10
+}
+
 func main() {
-	//Maps
+	//Passing
+	//Group type A -> strings, int, float, bools, arrays and structs
 
-	menu := map[string]float32{
-		"pie":   24.3,
-		"water": 2.1,
-		"soup":  15.2,
-		"salad": 18.2,
-		"cream": 9.1,
+	//name := "Ahemd"
+	//
+	//name = updateName(name)
+	//
+	//fmt.Println(name)
+
+	//Group type B -> slice, maps and functions
+
+	menu := map[string]int8{
+		"Pie":       24,
+		"Salad":     18,
+		"Ice cream": 2,
 	}
 
-	fmt.Println(menu)
-	fmt.Println(menu["pie"])
+	updateMenu(menu)
 
-	for k, v := range menu { // k will hold the string as index and the v will hold the price of the string
-		fmt.Println(k, ":", v)
+	for k, v := range menu {
+		fmt.Println(k, v)
 	}
 
-	//ints as key
-
-	phonebook := map[int]string{
-		911: "Emergency",
-		999: "Police",
-		998: "Civil Defense",
-		997: "Medical services",
-	}
-
-	fmt.Println(phonebook)
-	fmt.Println(phonebook[911])
-
-	phonebook[911] = "Superman"
-	fmt.Println(phonebook[911])
-
-	for k, v := range phonebook {
-		fmt.Println(k, ":", v)
-	}
+	//Type A can't be changed from outside it area unless used return
+	//Type B can be changed from outside it area
+	//Type A can be called non-pointer values and B can be called pointer values
 
 }
