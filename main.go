@@ -7,5 +7,7 @@ func main() {
 
 	myBill := newBill("Abdullah's bill")
 
-	fmt.Println(myBill)
+	//myBill.formatBill() // formatBill it is not a function with by self anymore
+
+	fmt.Println(myBill.formatBill())
 }

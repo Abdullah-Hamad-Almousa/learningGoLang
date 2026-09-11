@@ -1,18 +1,38 @@
 package main
 
+import "fmt"
+
 type bill struct {
-	name string
-	item map[string]float64
-	tip  float64
+	name  string
+	items map[string]float64
+	tip   float64
 }
 
 // Make new bill
 func newBill(name string) bill {
 	b := bill{
-		name: name,
-		item: map[string]float64{},
-		tip:  0,
+		name:  name,
+		items: map[string]float64{"Pie": 24.3, "Cake": 49.5},
+		tip:   0,
 	}
 
 	return b
+}
+
+// Format the bill
+func (b bill) formatBill() string {
+
+	fs := "Bill breakdown: \n"
+	var total float64 = 0
+
+	//List items
+
+	for k, v := range b.items {
+		fs += fmt.Sprintf("%-37v ...%v \n", k+":", v)
+		total += v
+	}
+
+	//Total
+	fs += fmt.Sprintf("%-37v ...$%.2f", "total:", total)
+	return fs
 }
