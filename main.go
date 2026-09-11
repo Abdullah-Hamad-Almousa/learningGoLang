@@ -21,7 +21,7 @@ func createBill() bill {
 	//name, _ := reader.ReadString('\n') //The trigger for reading next line of code when the user click enter by define \n
 	//name = strings.TrimSpace(name)     //Delete space that are not between the string
 
-	name, _ := getInput("Create a new bill name:", reader)
+	name, _ := getInput("Create a new bill name: ", reader)
 
 	b := newBill(name)
 	fmt.Println("Created the bill - ", b.name)
@@ -32,12 +32,26 @@ func createBill() bill {
 func promptOptions(b bill) {
 
 	reader := bufio.NewReader(os.Stdin)
-	opt, _ := getInput("Choose option (A - add item, S - save bill, T - add tip) :", reader)
-	fmt.Println(opt)
+	opt, _ := getInput("Choose option (A - add item, S - save bill, T - add tip) : ", reader)
+
+	switch opt {
+	case "A":
+		name, _ := getInput("Item name: ", reader)
+		price, _ := getInput("Item price: ", reader)
+		fmt.Println(name, price)
+	case "S":
+		fmt.Println("You chose S")
+	case "T":
+		tip, _ := getInput("Enter tip amount ($): ", reader)
+		fmt.Println(tip)
+	default:
+		fmt.Println("That's not a valid option")
+		promptOptions(b)
+	}
 }
 
 func main() {
-	//User Input
+	//Switch Statements
 	myBill := createBill()
 
 	promptOptions(myBill)
