@@ -18,6 +18,14 @@ type circle struct {
 	radius float64
 }
 
+type triangle struct {
+	height float64
+	base   float64
+	sideA  float64
+	sideB  float64
+	sideC  float64
+}
+
 // square methods
 func (s square) area() float64 {
 	return s.length * s.length
@@ -34,6 +42,16 @@ func (c circle) circumf() float64 {
 	return 2 * math.Pi * c.radius
 }
 
+//Triangle
+
+func (t triangle) area() float64 {
+	return t.height * t.base * .5
+}
+
+func (t triangle) circumf() float64 {
+	return t.sideA + t.sideB + t.sideC
+}
+
 func printShapeInfo(s shape) {
 	fmt.Printf("area of %T is: %0.2f \n", s, s.area())
 	fmt.Printf("circumference of %T is: %0.2f \n", s, s.circumf())
@@ -45,6 +63,8 @@ func main() {
 		circle{radius: 7.5},
 		circle{radius: 12.3},
 		square{length: 4.9},
+		triangle{base: 6, height: 4, sideA: 5, sideB: 5, sideC: 6},
+		triangle{base: 13, height: 7, sideA: 6, sideB: 14, sideC: 17},
 	}
 
 	for _, v := range shapes {
